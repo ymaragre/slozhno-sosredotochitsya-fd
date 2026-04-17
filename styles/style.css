@@ -113,12 +113,84 @@
   align-self: center;
 }
 
-.title-decor {
-  background-color: var(--accent-color);
-  color: var(--title-color);
-  font-weight: bold;
+.content-section {
+  padding-block: 25px;
+  padding-inline: var(--indent-small);
+}
+
+.content-section:first-child {
+  padding-block-start: 40px;
+}
+
+.content-section:last-child {
+  padding-block-end: 40px;
+}
+
+.section-title {
+  margin-bottom: var(--indent-large);
+  color: var(--accent-color);
+  font-size: inherit;
+}
+
+.section-list {
+  
+}
+
+.section-list-item:not(:last-child) {
+  margin-bottom: var(--indent-large);
+}
+
+.card {
+  
+}
+
+.card__title {
+  font-size: inherit;
+  margin-bottom: var(--indent-small);
+}
+
+.card:has(.card__list) > .card__title {
+  margin-bottom: var(--indent-large);
+}
+
+.card__list .card__title {
+  font-weight: normal;
+}
+
+.card__text {
+  
+}
+
+.card__list-item:not(:last-child) {
+  margin-bottom: var(--indent-large);
+}
+
+.content-link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.gallery {
+  display: grid;
+  gap: var(--indent-small)
+}
+
+.gallery .section-title {
+  margin-bottom: 0;
+}
+
+.gallery__image {
+  width: 100%;
 }
 
 .footer {
   position: relative;
+}
+
+/* вниз ради каскада */
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-color);
+  font-weight: bold;
 }
