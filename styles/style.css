@@ -1,5 +1,124 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  /* сохраните в разметке и стилях класс page у тега body.
+  Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  
+  
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  block-size: max(668px, 100dvb);
+  padding: var(--indent-small);
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  top: var(--indent-small);
+  right: var(--indent-small);
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  bottom: var(--indent-small);
+  left: var(--indent-small);
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+}
+
+.header__decor {
+  position: absolute;
+  top: var(--indent-small);
+  right: 19px;
+  display: flex;
+  align-items: center;
+  gap: var(--indent-small);
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.header__decor::after {
+  content: '';
+
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2.5px var(--accent-color);
+}
+
+.header__theme-menu {
+  align-self: center;
+  justify-self: end;
+  color: var(--accent-color);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--indent-small);
+}
+
+.header__theme-menu-item {
+  min-width: 70px;
+}
+
+.header__theme-menu-button {
+  width: 100%;
+  text-transform: lowercase;
+  background-color: transparent;
+  border: none;
+  padding-block: 4px;
+  line-height: 1;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--accent-color);
+  padding-block: 3px;
+}
+
+.title {
+  color: var(--main-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825;
+  text-shadow: 4px 4px 0 var(--accent-color);
+  text-transform: lowercase;
+}
+
+.header__title {
+  
+}
+
+.header__text {
+  align-self: center;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-color);
+  font-weight: bold;
+}
+
+.footer {
+  position: relative;
 }
