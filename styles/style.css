@@ -185,6 +185,10 @@
 
 .footer {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: max(668px, 100dvb);
 }
 
 /* вниз ради каскада */
