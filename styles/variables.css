@@ -15,4 +15,8 @@
   --main-font-size: 1.125rem;
   --indent-small: 10px;
   --indent-large: 20px;
+
+  --padding-page: var(--indent-small);
+  --indent-section: 25px;
+  --end-indent-section: 40px;
 }

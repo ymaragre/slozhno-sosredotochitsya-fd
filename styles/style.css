@@ -3,8 +3,7 @@
 .page {
   /* сохраните в разметке и стилях класс page у тега body.
   Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-  
-  
+
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-position: center;
@@ -18,15 +17,16 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
   block-size: max(668px, 100dvb);
-  padding: var(--indent-small);
+  padding: var(--padding-page);
 }
 
 .decorated-zone::before {
   content: '';
   position: absolute;
-  top: var(--indent-small);
-  right: var(--indent-small);
+  top: var(--padding-page);
+  right: var(--padding-page);
   display: block;
   width: 25px;
   height: 25px;
@@ -37,8 +37,8 @@
 .decorated-zone::after {
   content: '';
   position: absolute;
-  bottom: var(--indent-small);
-  left: var(--indent-small);
+  bottom: var(--padding-page);
+  left: var(--padding-page);
   display: block;
   width: 25px;
   height: 25px;
@@ -48,8 +48,8 @@
 
 .header__decor {
   position: absolute;
-  top: var(--indent-small);
-  right: 19px;
+  top: var(--padding-page);
+  right: calc(var(--padding-page) + 9px);
   display: flex;
   align-items: center;
   gap: var(--indent-small);
@@ -68,7 +68,6 @@
 }
 
 .header__theme-menu {
-  align-self: center;
   justify-self: end;
   color: var(--accent-color);
 }
@@ -113,28 +112,20 @@
   text-transform: lowercase;
 }
 
-.header__title {
-  
-}
-
-.header__text {
-  align-self: center;
-}
-
 .content-section {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--indent-large);
-  padding-block: 25px;
-  padding-inline: var(--indent-small);
+  padding-block: var(--indent-section);
+  padding-inline: var(--padding-page);
 }
 
 .content-section:first-child {
-  padding-block-start: 40px;
+  padding-block-start: var(--end-indent-section);
 }
 
 .content-section:last-child {
-  padding-block-end: 40px;
+  padding-block-end: var(--end-indent-section);
 }
 
 .section-title {
@@ -143,15 +134,9 @@
 }
 
 .section-list {
-  
-}
-
-.section-list-item:not(:last-child) {
-  margin-bottom: var(--indent-large);
-}
-
-.card {
-  
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--indent-large);
 }
 
 .card__title {
@@ -189,12 +174,27 @@
   outline: 1px solid currentColor;
 }
 
+/* повышенная специфичность, чтобы всегда оставалась одна колонка */
+
+.gallery.content-section {
+  grid-template-columns: 1fr;
+}
+
 .gallery {
-  gap: var(--indent-small)
+  gap: var(--indent-small);
+}
+
+.gallery__image-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--indent-small);
 }
 
 .gallery__image {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .footer {
@@ -220,5 +220,84 @@
 
   .content-link:hover {
     border-color: currentColor;
+  }
+}
+
+@media (width >= 768px) {
+  :root {
+    --padding-page: var(--indent-large);
+    --indent-section: 40px;
+    --end-indent-section: 60px;
+  }
+
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title {
+    margin-left: calc(var(--padding-page) * -1);
+  }
+
+  .header__text {
+    max-width: 50%;
+    justify-self: end;
+  }
+
+  .content-section {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .hindrance .section-list {
+    grid-column: 1 / -1;
+  }
+
+  .gallery {
+    gap: var(--indent-large);
+  }
+
+  .gallery__image-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    gap: var(--indent-large);
+  }
+
+  .gallery__image:nth-of-type(1) {
+    grid-column: span 2;
+  }
+
+  .gallery__image:nth-of-type(2) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-of-type(3) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-of-type(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .content-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .difficulties .section-list,
+  .advices .section-list {
+    grid-column: 2 / -1;
+  }
+
+  .hindrance .section-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
