@@ -129,7 +129,7 @@
 }
 
 .section-title {
-  color: var(--accent-color);
+  color: var(--section-title-color);
   font-size: inherit;
 }
 
@@ -209,7 +209,7 @@
 
 .title-decor {
   background-color: var(--accent-color);
-  color: var(--title-color);
+  color: var(--card-title-color);
   font-weight: bold;
 }
 
