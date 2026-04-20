@@ -1,15 +1,10 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body.
-  Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-
   background-color: var(--bg-color);
   background-image: var(--bg-image);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 
 .header {
@@ -18,8 +13,8 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
-  block-size: max(668px, 100dvb);
   padding: var(--padding-page);
+  block-size: max(668px, 100dvb);
 }
 
 .decorated-zone::before {
@@ -63,8 +58,8 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--accent-color);
   background-color: var(--accent-color);
-  box-shadow: 0 0 4px 2.5px var(--accent-color);
 }
 
 .header__theme-menu {
@@ -86,10 +81,10 @@
 .header__theme-menu-button {
   width: 100%;
   height: 100%;
-  text-transform: lowercase;
-  background-color: transparent;
   border: 1px solid transparent;
   line-height: 1;
+  text-transform: lowercase;
+  background-color: transparent;
 }
 
 .header__theme-menu-button:focus {
@@ -108,16 +103,16 @@
   color: var(--main-title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.825;
-  text-shadow: 4px 4px 0 var(--accent-color);
   text-transform: lowercase;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .content-section {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--indent-large);
-  padding-block: var(--indent-section);
   padding-inline: var(--padding-page);
+  padding-block: var(--indent-section);
 }
 
 .content-section:first-child {
@@ -140,8 +135,8 @@
 }
 
 .card__title {
-  font-size: inherit;
   margin-bottom: var(--indent-small);
+  font-size: inherit;
 }
 
 .card:has(.card__list) > .card__title {
@@ -152,18 +147,14 @@
   font-weight: normal;
 }
 
-.card__text {
-  
-}
-
 .card__list-item:not(:last-child) {
   margin-bottom: var(--indent-large);
 }
 
 .content-link {
+  border-bottom: 1px solid transparent;
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
-  border-bottom: 1px solid transparent;
 }
 
 .content-link:focus {
@@ -184,7 +175,7 @@
   gap: var(--indent-small);
 }
 
-.gallery__image-container {
+.image-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--indent-small);
@@ -205,12 +196,16 @@
   block-size: max(668px, 100dvb);
 }
 
+.footer__title {
+  text-shadow: 2px 2px 0px var(--accent-color);
+}
+
 /* вниз ради каскада */
 
 .title-decor {
-  background-color: var(--accent-color);
   color: var(--card-title-color);
   font-weight: bold;
+  background-color: var(--accent-color);
 }
 
 @media (hover: hover) {
@@ -230,6 +225,11 @@
     --end-indent-section: 60px;
   }
 
+  .header,
+  .footer {
+    block-size: max(1024px, 100dvb);
+  }
+
   .title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
@@ -239,8 +239,8 @@
   }
 
   .header__text {
-    max-width: 50%;
     justify-self: end;
+    max-width: 50%;
   }
 
   .content-section {
@@ -255,7 +255,7 @@
     gap: var(--indent-large);
   }
 
-  .gallery__image-container {
+  .image-container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, min-content);
     gap: var(--indent-large);
@@ -279,6 +279,11 @@
 }
 
 @media (width >= 1024px) {
+  .header,
+  .footer {
+    block-size: max(768px, 100dvb);
+  }
+
   .header__theme-menu {
     justify-self: center;
     align-self: start;
