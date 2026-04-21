@@ -2,7 +2,7 @@
   --bg-image: url(../images/cover-image-light.png);
   --bg-color: #FFF1F7;
   --main-title-color: #FFC2E6;
-  --section-title-color: #353430;
+  --accent-text-color: #353430;
   --card-title-color: #353430;
   --text-color: #353430;
   --accent-color: #FF8DCB;
@@ -17,7 +17,7 @@
     --bg-image: url(../images/cover-image-light.png);
     --bg-color: #FFF1F7;
     --main-title-color: #FFC2E6;
-    --section-title-color: #353430;
+    --accent-text-color: #353430;
     --card-title-color: #353430;
     --text-color: #353430;
     --accent-color: #FF8DCB;

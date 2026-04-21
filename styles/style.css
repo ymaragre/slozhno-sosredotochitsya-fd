@@ -25,8 +25,8 @@
   display: block;
   width: 25px;
   height: 25px;
-  border-top: 1px solid var(--accent-color);
-  border-right: 1px solid var(--accent-color);
+  border-top: 1px solid var(--accent-text-color);
+  border-right: 1px solid var(--accent-text-color);
 }
 
 .decorated-zone::after {
@@ -37,8 +37,8 @@
   display: block;
   width: 25px;
   height: 25px;
-  border-bottom: 1px solid var(--accent-color);
-  border-left: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-text-color);
+  border-left: 1px solid var(--accent-text-color);
 }
 
 .header__decor {
@@ -64,7 +64,7 @@
 
 .header__theme-menu {
   justify-self: end;
-  color: var(--accent-color);
+  color: var(--accent-text-color);
 }
 
 .header__theme-menu-list {
@@ -85,6 +85,7 @@
   line-height: 1;
   text-transform: lowercase;
   background-color: transparent;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .header__theme-menu-button:focus {
@@ -124,7 +125,7 @@
 }
 
 .section-title {
-  color: var(--section-title-color);
+  color: var(--accent-text-color);
   font-size: inherit;
 }
 
@@ -137,6 +138,10 @@
 .card__title {
   margin-bottom: var(--indent-small);
   font-size: inherit;
+}
+
+.card p:not(:last-child) {
+  margin-bottom: var(--indent-small);
 }
 
 .card:has(.card__list) > .card__title {
@@ -155,6 +160,7 @@
   border-bottom: 1px solid transparent;
   text-decoration: none;
   text-shadow: 2px 2px 0 var(--accent-color);
+  transition: border-color 0.2s ease-in-out;
 }
 
 .content-link:focus {
